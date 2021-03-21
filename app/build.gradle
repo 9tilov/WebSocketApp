@@ -1,0 +1,92 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+}
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('../keystore.jks')
+            storePassword '123qwe'
+            keyAlias 'key0'
+            keyPassword '123qwe'
+        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.d9tilov.android.websockettestapp"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation libs.kotlin
+    implementation libs.coreKtx
+    implementation libs.appCompat
+    implementation libs.material
+    implementation libs.fragment
+    implementation libs.constraintlayout
+    implementation libs.okHttp
+    implementation libs.okHttpLogging
+
+    implementation libs.roomRuntime
+    implementation libs.roomRxJava2
+    kapt compilers.room
+
+    implementation libs.rxAndroid
+
+    implementation libs.navigationFragment
+    implementation libs.navigationUi
+
+    implementation libs.lifecycleLifedata
+    implementation libs.lifecycleExtensions
+    implementation libs.lifecycleViewModel
+    implementation libs.lifecycleViewCommon
+
+    implementation libs.hilt
+    implementation libs.hiltViewModel
+    kapt compilers.hiltAndroid
+    kapt compilers.hilt
+
+    implementation libs.timber
+    implementation libs.gson
+}

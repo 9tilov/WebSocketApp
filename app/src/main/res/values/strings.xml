@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WebSocketTestApp</string>
+    <string name="toolbar_name_settings">Settings</string>
+    <string name="title_name">Instrument</string>
+    <string name="title_bid_ask">BID / ASK</string>
+    <string name="title_spread">SPREAD</string>
+    <string name="item_name">%1$s / %2$s</string>
+    <string name="item_bid_ask">%1$s / %2$s</string>
+    <string name="connection_error">Internet connection has lost</string>
+    <string name="retry">Retry</string>
+</resources>
